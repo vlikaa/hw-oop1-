@@ -8,7 +8,10 @@ using namespace std;
 
 int main()
 {
-
+	cout << int('+') << endl;
+	cout << int('-') << endl;
+	cout << int('*') << endl;
+	cout << int('/') << endl;
 	fraction fraction1, fraction2;
 	short fNumerator, fDenominator,
 		sNumerator, sDenominator;
@@ -26,6 +29,8 @@ int main()
 	cin >> sDenominator;
 	fraction2.setNumerator(sNumerator);
 	fraction2.setDenominator(sDenominator);
+	
+	fractionCalculations(fraction1.getNumerator(), fraction1.getDenominator(), fraction2.getNumerator(), fraction2.getDenominator(), '+');
 
 }
 
