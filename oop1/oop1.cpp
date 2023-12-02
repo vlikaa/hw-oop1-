@@ -1,6 +1,7 @@
 ﻿
 
 #include <iostream>
+#include <conio.h>
 #include "fraction.h"
 #include "functions.h"
 
@@ -8,29 +9,34 @@ using namespace std;
 
 int main()
 {
-	cout << int('+') << endl;
-	cout << int('-') << endl;
-	cout << int('*') << endl;
-	cout << int('/') << endl;
 	fraction fraction1, fraction2;
-	short fNumerator, fDenominator,
-		sNumerator, sDenominator;
+	short userSymbol;
 	cout << "Enter first numerator: ";
-	cin >> fNumerator;
+	cin >> fraction1.numerator;
 	cout << "Enter first denominator: ";
-	cin >> fDenominator;
-	fraction1.setNumerator(fNumerator);
-	fraction1.setDenominator(fDenominator);
-
+	cin >> fraction1.denominator;
+	if (fraction1.denominator == 0) {
+		cout << "\n    The denominator cannot be zero\n";
+		return 0;
+	}
 	system("cls");
 	cout << "Enter second numerator: ";
-	cin >> sNumerator;
+	cin >> fraction2.numerator;
 	cout << "Enter second denominator: ";
-	cin >> sDenominator;
-	fraction2.setNumerator(sNumerator);
-	fraction2.setDenominator(sDenominator);
+	cin >> fraction2.denominator;
+	if (fraction2.denominator == 0) {
+		cout << "\n    The denominator cannot be zero\n";
+		return 0;
+	}
 	
-	fractionCalculations(fraction1.getNumerator(), fraction1.getDenominator(), fraction2.getNumerator(), fraction2.getDenominator(), '+');
+	system("cls");
+	cout << "    Select operation:"
+		<< "\n\t1. plus"
+		<< "\n\t2. minus"
+		<< "\n\t3. multiply"
+		<< "\n\t4. divide\n";
+	userSymbol = _getch();
+	fractionCalculations(fraction1.numerator, fraction1.denominator, fraction2.numerator, fraction2.denominator, userSymbol);
 
 }
 
